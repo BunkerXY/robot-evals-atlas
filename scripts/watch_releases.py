@@ -18,6 +18,8 @@ for e in entries:
     try:
         req = urllib.request.Request(f"https://api.github.com/repos/{m.group(1)}/{m.group(2)}/releases?per_page=5", headers=H)
         for r in json.load(urllib.request.urlopen(req, timeout=30)):
+            if r.get("prerelease") or r.get("draft") or "nightly" in r["tag_name"].lower():
+                continue  # skip nightlies and pre-releases
             ts = datetime.datetime.fromisoformat((r.get("published_at") or r["created_at"]).replace("Z", "+00:00"))
             if ts >= since:
                 rows.append(f"| {e['name']} | [{r['tag_name']}]({r['html_url']}) | {ts:%Y-%m-%d} |")
