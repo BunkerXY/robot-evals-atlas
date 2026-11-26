@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  pull-requests: write
   issues: write
 jobs:
   stars:
@@ -16,12 +15,14 @@ jobs:
       - run: pip install pyyaml
       - run: python scripts/fetch_stars.py && python scripts/build_readme.py
         env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
-      - uses: peter-evans/create-pull-request@v7
-        with:
-          branch: bot/weekly-refresh
-          title: "chore: weekly stars & license refresh"
-          commit-message: "chore: weekly stars & license refresh"
-          body: "Automated refresh of `data/stars.json`, `README.md` and `data/atlas.csv`."
+      - name: Commit refreshed data (direct to main; repo setting blocks Actions-created PRs)
+        run: |
+          if git diff --quiet; then echo "No changes"; exit 0; fi
+          git config user.name "Bunker XY"
+          git config user.email "founders@bunkerxy.com"
+          git add data/stars.json data/atlas.csv README.md
+          git commit -m "chore: weekly stars & license refresh"
+          git push
   releases:
     runs-on: ubuntu-latest
     steps:
