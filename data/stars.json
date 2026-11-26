@@ -1,0 +1,660 @@
+{
+ "fetched_at": "2026-11-26",
+ "not_found": [],
+ "repos": {
+  "allenai/ai2thor": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-11-04",
+   "stars": 1832
+  },
+  "arise-initiative/robomimic": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-08-09",
+   "stars": 1610
+  },
+  "arise-initiative/robosuite": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-19",
+   "stars": 2723
+  },
+  "arnold-benchmark/arnold": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-03-16",
+   "stars": 187
+  },
+  "askforalfred/alfred": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-02-05",
+   "stars": 533
+  },
+  "bulletphysics/bullet3": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-10-09",
+   "stars": 14902
+  },
+  "bytedance/gr-1": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2024-04-22",
+   "stars": 309
+  },
+  "carlosferrazza/humanoid-bench": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2025-09-18",
+   "stars": 807
+  },
+  "clvrai/furniture-bench": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-11-22",
+   "stars": 244
+  },
+  "cyberbotics/webots": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-26",
+   "stars": 4778
+  },
+  "danijar/dreamerv3": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-10-04",
+   "stars": 4021
+  },
+  "dora-rs/dora": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-26",
+   "stars": 4109
+  },
+  "droid-dataset/droid": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2025-09-15",
+   "stars": 474
+  },
+  "embodied-agent-interface/embodied-agent-interface": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-03-06",
+   "stars": 303
+  },
+  "embodiedbench/embodiedbench": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2026-05-30",
+   "stars": 362
+  },
+  "embodiedreasoning/erqa": {
+   "archived": false,
+   "license": "CC-BY-4.0",
+   "pushed_at": "2025-03-12",
+   "stars": 340
+  },
+  "eureka-research/dreureka": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-08-26",
+   "stars": 947
+  },
+  "eureka-research/eureka": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-05-03",
+   "stars": 3218
+  },
+  "facebookresearch/habitat-lab": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-05-07",
+   "stars": 3195
+  },
+  "facebookresearch/habitat-sim": {
+   "archived": true,
+   "license": "MIT",
+   "pushed_at": "2026-07-21",
+   "stars": 3845
+  },
+  "facebookresearch/open-eqa": {
+   "archived": true,
+   "license": "MIT",
+   "pushed_at": "2024-09-20",
+   "stars": 363
+  },
+  "facebookresearch/vjepa2": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-10-29",
+   "stars": 4924
+  },
+  "farama-foundation/metaworld": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-11-23",
+   "stars": 1910
+  },
+  "gazebosim/gz-sim": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-26",
+   "stars": 1596
+  },
+  "genesis-embodied-ai/genesis-world": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-25",
+   "stars": 30316
+  },
+  "google-deepmind/mujoco": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-25",
+   "stars": 18492
+  },
+  "google-deepmind/mujoco_menagerie": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-24",
+   "stars": 4422
+  },
+  "google-deepmind/mujoco_playground": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-25",
+   "stars": 2348
+  },
+  "google-deepmind/open_x_embodiment": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-11-05",
+   "stars": 2104
+  },
+  "google-research/google-research": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-25",
+   "stars": 39469
+  },
+  "google-research/language-table": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-10-07",
+   "stars": 368
+  },
+  "google-research/rlds": {
+   "archived": true,
+   "license": "Apache-2.0",
+   "pushed_at": "2024-09-26",
+   "stars": 492
+  },
+  "google-research/robotics_transformer": {
+   "archived": true,
+   "license": "Apache-2.0",
+   "pushed_at": "2024-01-31",
+   "stars": 1739
+  },
+  "google/brax": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-10-20",
+   "stars": 3268
+  },
+  "haosulab/sapien": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-23",
+   "stars": 874
+  },
+  "huangwl18/rekep": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2025-02-20",
+   "stars": 1000
+  },
+  "huangwl18/voxposer": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-02-20",
+   "stars": 839
+  },
+  "huggingface/lerobot": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-26",
+   "stars": 29097
+  },
+  "isaac-sim/isaaclab": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-26",
+   "stars": 8729
+  },
+  "jacobkrantz/vln-ce": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-01-07",
+   "stars": 906
+  },
+  "juruobenruo/dexvla": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2025-04-15",
+   "stars": 74
+  },
+  "lecar-lab/asap": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-01-06",
+   "stars": 2148
+  },
+  "leggedrobotics/legged_gym": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2025-05-29",
+   "stars": 3197
+  },
+  "leggedrobotics/rsl_rl": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-25",
+   "stars": 3163
+  },
+  "lifelong-robot-learning/libero": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-03-15",
+   "stars": 2572
+  },
+  "liruiw/hpt": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-12-06",
+   "stars": 547
+  },
+  "mani-skill/maniskill": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-08-04",
+   "stars": 3552
+  },
+  "markfzp/humanplus": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2024-07-01",
+   "stars": 852
+  },
+  "markfzp/mobile-aloha": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-06-22",
+   "stars": 4485
+  },
+  "mees/calvin": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-09-08",
+   "stars": 1006
+  },
+  "microsoft/airsim": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-09-15",
+   "stars": 18639
+  },
+  "microsoft/cogact": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-10-30",
+   "stars": 435
+  },
+  "microsoft/magma": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-03-03",
+   "stars": 1949
+  },
+  "minedojo/voyager": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-04-03",
+   "stars": 7343
+  },
+  "moka-manipulation/moka": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-07-16",
+   "stars": 103
+  },
+  "moojink/openvla-oft": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-09-09",
+   "stars": 1451
+  },
+  "moveit/moveit2": {
+   "archived": false,
+   "license": "BSD-3-Clause",
+   "pushed_at": "2026-11-25",
+   "stars": 2134
+  },
+  "nasa-jpl/rosa": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-18",
+   "stars": 1698
+  },
+  "newton-physics/newton": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-26",
+   "stars": 5997
+  },
+  "nickgkan/3d_diffuser_actor": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-08-17",
+   "stars": 396
+  },
+  "notmahi/dobb-e": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-10-15",
+   "stars": 619
+  },
+  "nvidia-cosmos/cosmos-predict2": {
+   "archived": true,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-10-29",
+   "stars": 792
+  },
+  "nvidia-cosmos/cosmos-reason1": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-06-07",
+   "stars": 965
+  },
+  "nvidia/isaac-gr00t": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-17",
+   "stars": 8420
+  },
+  "nvlabs/hover": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-07-30",
+   "stars": 769
+  },
+  "nvlabs/mimicgen": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-10-21",
+   "stars": 676
+  },
+  "nvlabs/rvt": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2025-02-14",
+   "stars": 408
+  },
+  "octo-models/octo": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-07-31",
+   "stars": 1857
+  },
+  "ok-robot/ok-robot": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-03-04",
+   "stars": 620
+  },
+  "opendrivelab/agibot-world": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2026-05-29",
+   "stars": 3236
+  },
+  "opendrivelab/univla": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-11-19",
+   "stars": 1146
+  },
+  "openmoss/vlabench": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-11-11",
+   "stars": 482
+  },
+  "opentelevision/television": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2024-09-27",
+   "stars": 1321
+  },
+  "openvla/openvla": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-03-23",
+   "stars": 7350
+  },
+  "osrf/subt": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2024-05-07",
+   "stars": 372
+  },
+  "osu-nlp-group/llm-planner": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-03-26",
+   "stars": 226
+  },
+  "peract/peract": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2024-05-09",
+   "stars": 496
+  },
+  "physical-intelligence/openpi": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-08-24",
+   "stars": 14768
+  },
+  "pku-marl/dexteroushands": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-02-18",
+   "stars": 1123
+  },
+  "rail-berkeley/crossformer": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-08-26",
+   "stars": 286
+  },
+  "rail-berkeley/hil-serl": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-10-27",
+   "stars": 1603
+  },
+  "rail-berkeley/serl": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-10-27",
+   "stars": 871
+  },
+  "real-stanford/diffusion_policy": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-12-24",
+   "stars": 4747
+  },
+  "real-stanford/universal_manipulation_interface": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-05-26",
+   "stars": 1647
+  },
+  "rerun-io/rerun": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-25",
+   "stars": 11868
+  },
+  "robocasa/robocasa": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-18",
+   "stars": 1888
+  },
+  "roboflamingo/roboflamingo": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-05-08",
+   "stars": 439
+  },
+  "robot-colosseum/robot-colosseum": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2025-03-03",
+   "stars": 162
+  },
+  "roboterax/humanoid-gym": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2025-01-26",
+   "stars": 2128
+  },
+  "robotlocomotion/drake": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-26",
+   "stars": 4262
+  },
+  "robotwin-platform/robotwin": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-09-24",
+   "stars": 3081
+  },
+  "ros-navigation/navigation2": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2026-11-25",
+   "stars": 5118
+  },
+  "ros2/ros2": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2026-11-17",
+   "stars": 6352
+  },
+  "sage-physicalai/seer": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-07-08",
+   "stars": 315
+  },
+  "simpler-env/simplerenv": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-09-30",
+   "stars": 1191
+  },
+  "spatialvla/spatialvla": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2025-06-23",
+   "stars": 737
+  },
+  "stanfordvl/behavior-1k": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-11-25",
+   "stars": 1812
+  },
+  "stepjam/rlbench": {
+   "archived": false,
+   "license": "NOASSERTION",
+   "pushed_at": "2025-01-25",
+   "stars": 1839
+  },
+  "therobotstudio/so-arm100": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2026-11-20",
+   "stars": 8226
+  },
+  "thu-ml/roboticsdiffusiontransformer": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-01-21",
+   "stars": 1823
+  },
+  "tonyzhaozh/act": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-07-23",
+   "stars": 2355
+  },
+  "tonyzhaozh/aloha": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-04-19",
+   "stars": 2373
+  },
+  "unitreerobotics/unitree_rl_gym": {
+   "archived": false,
+   "license": "BSD-3-Clause",
+   "pushed_at": "2025-07-25",
+   "stars": 3693
+  },
+  "vimalabs/vima": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2024-04-18",
+   "stars": 857
+  },
+  "vimalabs/vimabench": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2023-09-26",
+   "stars": 330
+  },
+  "wentaoyuan/robopoint": {
+   "archived": false,
+   "license": "Apache-2.0",
+   "pushed_at": "2025-07-17",
+   "stars": 233
+  },
+  "wuphilipp/gello_software": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2026-11-10",
+   "stars": 569
+  },
+  "xlang-ai/text2reward": {
+   "archived": false,
+   "license": null,
+   "pushed_at": "2024-12-17",
+   "stars": 216
+  },
+  "yanjieze/3d-diffusion-policy": {
+   "archived": false,
+   "license": "MIT",
+   "pushed_at": "2025-10-17",
+   "stars": 1474
+  }
+ }
+}

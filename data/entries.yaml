@@ -1,0 +1,1535 @@
+# Source of truth for the Atlas. README tables are generated from this file.
+# Fields: id, name, section, year, org, summary, paper, project, code, weights, tags
+# Leave a field out rather than guess. Every URL is checked in CI.
+
+# ───────────────────────── Vision-Language-Action & robot foundation models
+- id: rt-1
+  name: RT-1
+  section: vla
+  year: 2022
+  org: Google
+  summary: Robotics Transformer that tokenizes images + language into discrete actions; trained on 130k real demos.
+  paper: https://arxiv.org/abs/2212.06817
+  project: https://robotics-transformer1.github.io/
+  code: https://github.com/google-research/robotics_transformer
+  tags: [transformer, real-world, mobile-manipulator]
+- id: rt-2
+  name: RT-2
+  section: vla
+  year: 2023
+  org: Google DeepMind
+  summary: Co-fine-tunes a web-scale VLM to emit actions as text tokens; the paper that popularised the term VLA.
+  paper: https://arxiv.org/abs/2307.15818
+  project: https://robotics-transformer2.github.io/
+  tags: [vlm-backbone, closed-weights]
+- id: rt-x
+  name: RT-1-X / RT-2-X (Open X-Embodiment)
+  section: vla
+  year: 2023
+  org: Open X-Embodiment Collaboration
+  summary: RT-1/RT-2 trained on the pooled 22-embodiment Open X-Embodiment dataset to test cross-robot transfer.
+  paper: https://arxiv.org/abs/2310.08864
+  project: https://robotics-transformer-x.github.io/
+  code: https://github.com/google-deepmind/open_x_embodiment
+  tags: [cross-embodiment]
+- id: octo
+  name: Octo
+  section: vla
+  year: 2024
+  org: UC Berkeley, Stanford, CMU
+  summary: Open-source transformer diffusion policy pretrained on 800k OXE episodes; small enough to fine-tune on one GPU.
+  paper: https://arxiv.org/abs/2405.12213
+  project: https://octo-models.github.io/
+  code: https://github.com/octo-models/octo
+  weights: https://huggingface.co/rail-berkeley/octo-base-1.5
+  tags: [open-weights, diffusion-head, cross-embodiment]
+- id: openvla
+  name: OpenVLA
+  section: vla
+  year: 2024
+  org: Stanford, UC Berkeley, TRI, Google DeepMind
+  summary: 7B open VLA (Llama 2 + DINOv2/SigLIP) trained on 970k OXE episodes; the de-facto open baseline.
+  paper: https://arxiv.org/abs/2406.09246
+  project: https://openvla.github.io/
+  code: https://github.com/openvla/openvla
+  weights: https://huggingface.co/openvla/openvla-7b
+  tags: [open-weights, 7B, autoregressive]
+- id: openvla-oft
+  name: OpenVLA-OFT
+  section: vla
+  year: 2025
+  org: Stanford
+  summary: Optimized fine-tuning recipe (parallel decoding, action chunking, continuous L1 actions) for OpenVLA.
+  paper: https://arxiv.org/abs/2502.19645
+  project: https://openvla-oft.github.io/
+  code: https://github.com/moojink/openvla-oft
+  tags: [fine-tuning, open-weights]
+- id: pi0
+  name: π0 (pi-zero)
+  section: vla
+  year: 2024
+  org: Physical Intelligence
+  summary: PaliGemma-based VLA with a flow-matching action expert for high-frequency dexterous control.
+  paper: https://arxiv.org/abs/2410.24164
+  project: https://www.physicalintelligence.company/blog/pi0
+  code: https://github.com/Physical-Intelligence/openpi
+  tags: [flow-matching, open-weights]
+- id: pi0-fast
+  name: π0-FAST
+  section: vla
+  year: 2025
+  org: Physical Intelligence
+  summary: Autoregressive π0 variant using the FAST DCT-based action tokenizer.
+  paper: https://arxiv.org/abs/2501.09747
+  project: https://www.physicalintelligence.company/research/fast
+  code: https://github.com/Physical-Intelligence/openpi
+  tags: [tokenizer, autoregressive, open-weights]
+- id: pi05
+  name: π0.5
+  section: vla
+  year: 2025
+  org: Physical Intelligence
+  summary: Co-trained VLA aimed at open-world generalization (cleaning unseen homes); weights released in openpi.
+  paper: https://arxiv.org/abs/2504.16054
+  project: https://www.physicalintelligence.company/blog/pi05
+  code: https://github.com/Physical-Intelligence/openpi
+  tags: [open-world, open-weights]
+- id: gr00t-n1
+  name: GR00T N1 / N1.5
+  section: vla
+  year: 2025
+  org: NVIDIA
+  summary: Open humanoid foundation model with a VLM "System 2" and diffusion-transformer "System 1".
+  paper: https://arxiv.org/abs/2503.14734
+  project: https://developer.nvidia.com/isaac/gr00t
+  code: https://github.com/NVIDIA/Isaac-GR00T
+  weights: https://huggingface.co/nvidia/GR00T-N1.5-3B
+  tags: [humanoid, dual-system, open-weights]
+- id: gemini-robotics
+  name: Gemini Robotics / Gemini Robotics-ER
+  section: vla
+  year: 2025
+  org: Google DeepMind
+  summary: Gemini 2.0-based VLA plus an embodied-reasoning (ER) model for spatial understanding.
+  paper: https://arxiv.org/abs/2503.20020
+  project: https://deepmind.google/models/gemini-robotics/
+  tags: [closed-weights, embodied-reasoning]
+- id: gemini-robotics-15
+  name: Gemini Robotics 1.5 / ER 1.5
+  section: vla
+  year: 2025
+  org: Google DeepMind
+  summary: Thinking VLA + agentic ER model that plans multi-step tasks and transfers motions across embodiments.
+  paper: https://arxiv.org/abs/2510.03342
+  project: https://deepmind.google/models/gemini-robotics/
+  tags: [closed-weights, agentic, cross-embodiment]
+- id: helix
+  name: Helix
+  section: vla
+  year: 2025
+  org: Figure AI
+  summary: Dual-system VLA controlling a full humanoid upper body, announced via technical blog (no paper or weights).
+  project: https://www.figure.ai/news/helix
+  tags: [humanoid, closed-weights, dual-system]
+- id: smolvla
+  name: SmolVLA
+  section: vla
+  year: 2025
+  org: Hugging Face
+  summary: 450M-parameter VLA trained on community LeRobot datasets; runs on consumer hardware.
+  paper: https://arxiv.org/abs/2506.01844
+  code: https://github.com/huggingface/lerobot
+  weights: https://huggingface.co/lerobot/smolvla_base
+  tags: [small, open-weights, community-data]
+- id: rdt-1b
+  name: RDT-1B
+  section: vla
+  year: 2024
+  org: Tsinghua University
+  summary: 1.2B diffusion transformer foundation model for bimanual manipulation.
+  paper: https://arxiv.org/abs/2410.07864
+  project: https://rdt-robotics.github.io/rdt-robotics/
+  code: https://github.com/thu-ml/RoboticsDiffusionTransformer
+  weights: https://huggingface.co/robotics-diffusion-transformer/rdt-1b
+  tags: [bimanual, diffusion, open-weights]
+- id: cogact
+  name: CogACT
+  section: vla
+  year: 2024
+  org: Microsoft Research Asia, Tsinghua
+  summary: VLA that conditions a diffusion action transformer on VLM cognition features.
+  paper: https://arxiv.org/abs/2411.19650
+  project: https://cogact.github.io/
+  code: https://github.com/microsoft/CogACT
+  tags: [diffusion-head, open-weights]
+- id: spatialvla
+  name: SpatialVLA
+  section: vla
+  year: 2025
+  org: Shanghai AI Lab
+  summary: Adds ego-centric 3D position encoding and adaptive spatial action grids to a VLA.
+  paper: https://arxiv.org/abs/2501.15830
+  code: https://github.com/SpatialVLA/SpatialVLA
+  tags: [3d, open-weights]
+- id: tinyvla
+  name: TinyVLA
+  section: vla
+  year: 2024
+  org: Midea Group, East China Normal University
+  summary: Compact VLA with a diffusion policy decoder designed for fast inference and data efficiency.
+  paper: https://arxiv.org/abs/2409.12514
+  project: https://tiny-vla.github.io/
+  tags: [small, diffusion-head]
+- id: dexvla
+  name: DexVLA
+  section: vla
+  year: 2025
+  org: Midea Group
+  summary: VLA with a 1B-parameter diffusion expert and embodiment curriculum for cross-embodiment dexterity.
+  paper: https://arxiv.org/abs/2502.05855
+  project: https://dex-vla.github.io/
+  code: https://github.com/juruobenruo/DexVLA
+  tags: [dexterous, diffusion]
+- id: hpt
+  name: HPT (Heterogeneous Pre-trained Transformers)
+  section: vla
+  year: 2024
+  org: MIT, Meta
+  summary: Shared trunk with embodiment-specific stems/heads to pretrain across heterogeneous robots.
+  paper: https://arxiv.org/abs/2409.20537
+  project: https://liruiw.github.io/hpt/
+  code: https://github.com/liruiw/HPT
+  tags: [cross-embodiment]
+- id: crossformer
+  name: CrossFormer
+  section: vla
+  year: 2024
+  org: UC Berkeley
+  summary: One transformer policy controlling arms, quadrupeds, drones and navigation robots.
+  paper: https://arxiv.org/abs/2408.11812
+  project: https://crossformer-model.github.io/
+  code: https://github.com/rail-berkeley/crossformer
+  tags: [cross-embodiment, quadruped, drone]
+- id: roboflamingo
+  name: RoboFlamingo
+  section: vla
+  year: 2023
+  org: ByteDance Research
+  summary: Adapts the OpenFlamingo VLM to language-conditioned manipulation on CALVIN.
+  paper: https://arxiv.org/abs/2311.01378
+  project: https://roboflamingo.github.io/
+  code: https://github.com/RoboFlamingo/RoboFlamingo
+  tags: [vlm-backbone]
+- id: gr-1
+  name: GR-1
+  section: vla
+  year: 2023
+  org: ByteDance Research
+  summary: GPT-style model pretrained on large-scale video generation, then fine-tuned for manipulation.
+  paper: https://arxiv.org/abs/2312.13139
+  project: https://gr1-manipulation.github.io/
+  code: https://github.com/bytedance/GR-1
+  tags: [video-pretraining]
+- id: gr-2
+  name: GR-2
+  section: vla
+  year: 2024
+  org: ByteDance Research
+  summary: Generative video-language-action model pretrained on 38M web video clips.
+  paper: https://arxiv.org/abs/2410.06158
+  tags: [video-pretraining, closed-weights]
+- id: univla
+  name: UniVLA
+  section: vla
+  year: 2025
+  org: OpenDriveLab (HKU)
+  summary: Learns task-centric latent actions from videos to train cross-embodiment policies.
+  paper: https://arxiv.org/abs/2505.06111
+  code: https://github.com/OpenDriveLab/UniVLA
+  tags: [latent-actions, video]
+- id: magma
+  name: Magma
+  section: vla
+  year: 2025
+  org: Microsoft Research
+  summary: Multimodal foundation model for both digital (UI) and physical (robot) agents.
+  paper: https://arxiv.org/abs/2502.13130
+  project: https://microsoft.github.io/Magma/
+  code: https://github.com/microsoft/Magma
+  tags: [agentic, ui-and-robot]
+- id: go-1
+  name: GO-1 (Genie Operator-1)
+  section: vla
+  year: 2025
+  org: AgiBot, Shanghai AI Lab
+  summary: Generalist policy with latent action planner trained on the AgiBot World dataset.
+  paper: https://arxiv.org/abs/2503.06669
+  code: https://github.com/OpenDriveLab/AgiBot-World
+  tags: [latent-actions, humanoid-data]
+- id: lbm-tri
+  name: Large Behavior Models (TRI)
+  section: vla
+  year: 2025
+  org: Toyota Research Institute
+  summary: Careful statistical study of multitask diffusion "LBMs" with blind, randomized real-world evals.
+  paper: https://arxiv.org/abs/2507.05331
+  project: https://toyotaresearchinstitute.github.io/lbm1/
+  tags: [evaluation-methodology, diffusion]
+- id: palm-e
+  name: PaLM-E
+  section: vla
+  year: 2023
+  org: Google
+  summary: 562B embodied multimodal language model feeding sensor tokens into PaLM for planning.
+  paper: https://arxiv.org/abs/2303.03378
+  project: https://palm-e.github.io/
+  tags: [embodied-lm, closed-weights]
+- id: robocat
+  name: RoboCat
+  section: vla
+  year: 2023
+  org: Google DeepMind
+  summary: Self-improving generalist agent that generates its own training data across arms.
+  paper: https://arxiv.org/abs/2306.11706
+  tags: [self-improvement, closed-weights]
+- id: gato
+  name: Gato
+  section: vla
+  year: 2022
+  org: DeepMind
+  summary: Single generalist transformer policy across games, captioning and real-robot stacking.
+  paper: https://arxiv.org/abs/2205.06175
+  tags: [generalist, closed-weights]
+- id: vima
+  name: VIMA
+  section: vla
+  year: 2022
+  org: Stanford, NVIDIA
+  summary: Multimodal-prompt manipulation agent with its own VIMA-Bench.
+  paper: https://arxiv.org/abs/2210.03094
+  project: https://vimalabs.github.io/
+  code: https://github.com/vimalabs/VIMA
+  tags: [multimodal-prompts]
+- id: hi-robot
+  name: Hi Robot
+  section: vla
+  year: 2025
+  org: Physical Intelligence
+  summary: Hierarchical VLM high-level policy that handles open-ended instructions and corrections for a VLA.
+  paper: https://arxiv.org/abs/2502.19417
+  tags: [hierarchical, instruction-following]
+
+# ───────────────────────── Visuomotor policies & learning methods
+- id: diffusion-policy
+  name: Diffusion Policy
+  section: policy
+  year: 2023
+  org: Columbia, MIT, TRI
+  summary: Models action sequences with denoising diffusion; now a standard visuomotor baseline.
+  paper: https://arxiv.org/abs/2303.04137
+  project: https://diffusion-policy.cs.columbia.edu/
+  code: https://github.com/real-stanford/diffusion_policy
+  tags: [diffusion, baseline]
+- id: act
+  name: ACT / ALOHA
+  section: policy
+  year: 2023
+  org: Stanford
+  summary: Action Chunking with Transformers trained on low-cost bimanual ALOHA teleop data.
+  paper: https://arxiv.org/abs/2304.13705
+  project: https://tonyzhaozh.github.io/aloha/
+  code: https://github.com/tonyzhaozh/act
+  tags: [bimanual, action-chunking, baseline]
+- id: mobile-aloha
+  name: Mobile ALOHA
+  section: policy
+  year: 2024
+  org: Stanford
+  summary: Whole-body teleop + co-training for bimanual mobile manipulation.
+  paper: https://arxiv.org/abs/2401.02117
+  project: https://mobile-aloha.github.io/
+  code: https://github.com/MarkFzp/mobile-aloha
+  tags: [mobile-manipulation]
+- id: dp3
+  name: 3D Diffusion Policy (DP3)
+  section: policy
+  year: 2024
+  org: Shanghai Qi Zhi, Tsinghua
+  summary: Diffusion policy over compact point-cloud representations.
+  paper: https://arxiv.org/abs/2403.03954
+  project: https://3d-diffusion-policy.github.io/
+  code: https://github.com/YanjieZe/3D-Diffusion-Policy
+  tags: [3d, diffusion]
+- id: 3d-diffuser-actor
+  name: 3D Diffuser Actor
+  section: policy
+  year: 2024
+  org: Carnegie Mellon University
+  summary: 3D scene-token diffusion policy; strong on RLBench and CALVIN.
+  paper: https://arxiv.org/abs/2402.10885
+  project: https://3d-diffuser-actor.github.io/
+  code: https://github.com/nickgkan/3d_diffuser_actor
+  tags: [3d, diffusion]
+- id: peract
+  name: PerAct
+  section: policy
+  year: 2022
+  org: University of Washington, NVIDIA
+  summary: Perceiver transformer over voxelized observations for 6-DoF keyframe manipulation.
+  paper: https://arxiv.org/abs/2209.05451
+  project: https://peract.github.io/
+  code: https://github.com/peract/peract
+  tags: [3d, keyframe]
+- id: rvt2
+  name: RVT-2
+  section: policy
+  year: 2024
+  org: NVIDIA
+  summary: Multi-view transformer for precise manipulation from few demonstrations.
+  paper: https://arxiv.org/abs/2406.08545
+  project: https://robotic-view-transformer-2.github.io/
+  code: https://github.com/NVlabs/RVT
+  tags: [3d, keyframe]
+- id: seer
+  name: Seer
+  section: policy
+  year: 2024
+  org: Shanghai AI Lab
+  summary: Predictive inverse dynamics model that jointly forecasts future frames and actions.
+  paper: https://arxiv.org/abs/2412.15109
+  code: https://github.com/Sage-PhysicalAI/Seer
+  tags: [inverse-dynamics, video-prediction]
+- id: serl
+  name: SERL
+  section: policy
+  year: 2024
+  org: UC Berkeley
+  summary: Sample-efficient real-world RL software suite for manipulation.
+  paper: https://arxiv.org/abs/2401.16013
+  project: https://serl-robot.github.io/
+  code: https://github.com/rail-berkeley/serl
+  tags: [real-world-rl]
+- id: hil-serl
+  name: HIL-SERL
+  section: policy
+  year: 2024
+  org: UC Berkeley
+  summary: Human-in-the-loop real-world RL reaching near-perfect success on dexterous tasks.
+  paper: https://arxiv.org/abs/2410.21845
+  project: https://hil-serl.github.io/
+  code: https://github.com/rail-berkeley/hil-serl
+  tags: [real-world-rl, human-in-the-loop]
+- id: dobb-e
+  name: Dobb-E
+  section: policy
+  year: 2023
+  org: NYU, Meta
+  summary: Home-robot framework with a $20 "Stick" data collector and Home Pretrained Representations.
+  paper: https://arxiv.org/abs/2311.16098
+  project: https://dobb-e.com/
+  code: https://github.com/notmahi/dobb-e
+  tags: [home, low-cost]
+
+# ───────────────────────── LLM / VLM agents, planners, embodied reasoners
+- id: saycan
+  name: SayCan
+  section: agent
+  year: 2022
+  org: Google
+  summary: Grounds LLM task plans with learned value functions ("what's useful" × "what's possible").
+  paper: https://arxiv.org/abs/2204.01691
+  project: https://say-can.github.io/
+  code: https://github.com/google-research/google-research/tree/master/saycan
+  tags: [llm-planner, affordance]
+- id: inner-monologue
+  name: Inner Monologue
+  section: agent
+  year: 2022
+  org: Google
+  summary: Closes the loop by feeding success detection and scene feedback back into the LLM planner.
+  paper: https://arxiv.org/abs/2207.05608
+  project: https://innermonologue.github.io/
+  tags: [llm-planner, closed-loop]
+- id: code-as-policies
+  name: Code as Policies
+  section: agent
+  year: 2022
+  org: Google
+  summary: LLM writes robot policy code that calls perception and control APIs.
+  paper: https://arxiv.org/abs/2209.07753
+  project: https://code-as-policies.github.io/
+  code: https://github.com/google-research/google-research/tree/master/code_as_policies
+  tags: [code-generation]
+- id: progprompt
+  name: ProgPrompt
+  section: agent
+  year: 2022
+  org: NVIDIA, USC
+  summary: Pythonic program prompts to generate situated robot task plans.
+  paper: https://arxiv.org/abs/2209.11302
+  project: https://progprompt.github.io/
+  tags: [code-generation, llm-planner]
+- id: voxposer
+  name: VoxPoser
+  section: agent
+  year: 2023
+  org: Stanford
+  summary: LLM+VLM compose 3D value maps that a motion planner follows zero-shot.
+  paper: https://arxiv.org/abs/2307.05973
+  project: https://voxposer.github.io/
+  code: https://github.com/huangwl18/VoxPoser
+  tags: [zero-shot, value-maps]
+- id: rekep
+  name: ReKep
+  section: agent
+  year: 2024
+  org: Stanford
+  summary: VLM-generated relational keypoint constraints solved as an optimization for manipulation.
+  paper: https://arxiv.org/abs/2409.01652
+  project: https://rekep-robot.github.io/
+  code: https://github.com/huangwl18/ReKep
+  tags: [zero-shot, keypoints]
+- id: llm-planner
+  name: LLM-Planner
+  section: agent
+  year: 2022
+  org: Ohio State University
+  summary: Few-shot grounded high-level planning with LLMs, evaluated on ALFRED.
+  paper: https://arxiv.org/abs/2212.04088
+  project: https://dki-lab.github.io/LLM-Planner/
+  code: https://github.com/OSU-NLP-Group/LLM-Planner
+  tags: [llm-planner, alfred]
+- id: eureka
+  name: Eureka
+  section: agent
+  year: 2023
+  org: NVIDIA, UPenn, Caltech
+  summary: LLM-written reward functions evolved to train dexterous RL policies (e.g. pen spinning).
+  paper: https://arxiv.org/abs/2310.12931
+  project: https://eureka-research.github.io/
+  code: https://github.com/eureka-research/Eureka
+  tags: [reward-design, rl]
+- id: dreureka
+  name: DrEureka
+  section: agent
+  year: 2024
+  org: UPenn, NVIDIA
+  summary: LLM-guided reward and domain-randomization design for sim-to-real.
+  paper: https://arxiv.org/abs/2406.01967
+  project: https://eureka-research.github.io/dr-eureka/
+  code: https://github.com/eureka-research/DrEureka
+  tags: [sim-to-real, reward-design]
+- id: text2reward
+  name: Text2Reward
+  section: agent
+  year: 2023
+  org: HKU, Salesforce
+  summary: Generates dense, shaped reward code from natural-language goals.
+  paper: https://arxiv.org/abs/2309.11489
+  project: https://text-to-reward.github.io/
+  code: https://github.com/xlang-ai/text2reward
+  tags: [reward-design]
+- id: voyager
+  name: Voyager
+  section: agent
+  year: 2023
+  org: NVIDIA, Caltech
+  summary: LLM-powered lifelong-learning agent with an ever-growing skill library (in Minecraft).
+  paper: https://arxiv.org/abs/2305.16291
+  project: https://voyager.minedojo.org/
+  code: https://github.com/MineDojo/Voyager
+  tags: [skill-library, lifelong]
+- id: autort
+  name: AutoRT
+  section: agent
+  year: 2024
+  org: Google DeepMind
+  summary: Foundation-model orchestration of a robot fleet in the wild with a "robot constitution" for safety.
+  paper: https://arxiv.org/abs/2401.12963
+  project: https://auto-rt.github.io/
+  tags: [fleet, safety-rules]
+- id: ok-robot
+  name: OK-Robot
+  section: agent
+  year: 2024
+  org: NYU, Meta
+  summary: Open-knowledge modular pick-and-drop system combining open-vocab perception and grasping.
+  paper: https://arxiv.org/abs/2401.12202
+  project: https://ok-robot.github.io/
+  code: https://github.com/ok-robot/ok-robot
+  tags: [modular, open-vocabulary]
+- id: moka
+  name: MOKA
+  section: agent
+  year: 2024
+  org: UC Berkeley
+  summary: Mark-based visual prompting so a VLM selects keypoints and waypoints for manipulation.
+  paper: https://arxiv.org/abs/2403.03174
+  project: https://moka-manipulation.github.io/
+  code: https://github.com/moka-manipulation/moka
+  tags: [visual-prompting]
+- id: robopoint
+  name: RoboPoint
+  section: agent
+  year: 2024
+  org: University of Washington, NVIDIA
+  summary: VLM fine-tuned to predict spatial affordance points from language.
+  paper: https://arxiv.org/abs/2406.10721
+  project: https://robo-point.github.io/
+  code: https://github.com/wentaoyuan/RoboPoint
+  tags: [spatial-reasoning]
+- id: spatialvlm
+  name: SpatialVLM
+  section: agent
+  year: 2024
+  org: Google DeepMind
+  summary: Trains VLMs on synthetic 3D spatial VQA for quantitative spatial reasoning.
+  paper: https://arxiv.org/abs/2401.12168
+  project: https://spatial-vlm.github.io/
+  tags: [spatial-reasoning]
+- id: cosmos-reason1
+  name: Cosmos-Reason1
+  section: agent
+  year: 2025
+  org: NVIDIA
+  summary: Physical-AI reasoning VLM trained for physical common sense and embodied decisions.
+  paper: https://arxiv.org/abs/2503.15558
+  code: https://github.com/nvidia-cosmos/cosmos-reason1
+  tags: [reasoning, open-weights]
+- id: rosa
+  name: ROSA
+  section: agent
+  year: 2024
+  org: NASA JPL
+  summary: LLM agent that lets operators inspect and command ROS 1/2 systems in natural language.
+  code: https://github.com/nasa-jpl/rosa
+  tags: [ros, operator-assistant]
+
+# ───────────────────────── Humanoid whole-body control
+- id: humanplus
+  name: HumanPlus
+  section: humanoid
+  year: 2024
+  org: Stanford
+  summary: Real-time human shadowing and imitation for a full-size humanoid from a single RGB camera.
+  paper: https://arxiv.org/abs/2406.10454
+  project: https://humanoid-ai.github.io/
+  code: https://github.com/MarkFzp/humanplus
+  tags: [teleop, imitation]
+- id: omnih2o
+  name: OmniH2O
+  section: humanoid
+  year: 2024
+  org: CMU
+  summary: Universal whole-body humanoid teleoperation and autonomy via a kinematic-pose interface.
+  paper: https://arxiv.org/abs/2406.08858
+  project: https://omni.human2humanoid.com/
+  tags: [teleop, whole-body]
+- id: exbody2
+  name: ExBody2
+  section: humanoid
+  year: 2024
+  org: UC San Diego
+  summary: Expressive whole-body humanoid motion tracking learned in sim and transferred to real.
+  paper: https://arxiv.org/abs/2412.13196
+  project: https://exbody2.github.io/
+  tags: [motion-tracking]
+- id: asap
+  name: ASAP
+  section: humanoid
+  year: 2025
+  org: CMU, NVIDIA
+  summary: Aligns simulation and real-world physics with a learned delta-action model for agile humanoid skills.
+  paper: https://arxiv.org/abs/2502.01143
+  project: https://agile.human2humanoid.com/
+  code: https://github.com/LeCAR-Lab/ASAP
+  tags: [sim-to-real, agile]
+- id: hover
+  name: HOVER
+  section: humanoid
+  year: 2024
+  org: NVIDIA, CMU
+  summary: One neural whole-body controller distilled to support many humanoid control modes.
+  paper: https://arxiv.org/abs/2410.21229
+  project: https://hover-versatile-humanoid.github.io/
+  code: https://github.com/NVlabs/HOVER
+  tags: [whole-body, controller]
+- id: beyondmimic
+  name: BeyondMimic
+  section: humanoid
+  year: 2025
+  org: UC Berkeley
+  summary: Motion tracking plus guided diffusion for versatile humanoid control.
+  paper: https://arxiv.org/abs/2508.08241
+  project: https://beyondmimic.github.io/
+  tags: [motion-tracking, diffusion]
+- id: unitree-rl-gym
+  name: Unitree RL Gym
+  section: humanoid
+  year: 2024
+  org: Unitree Robotics
+  summary: Official Isaac Gym → MuJoCo → real pipeline for Unitree G1/H1 locomotion RL.
+  code: https://github.com/unitreerobotics/unitree_rl_gym
+  tags: [locomotion, sim-to-real]
+- id: humanoid-gym
+  name: Humanoid-Gym
+  section: humanoid
+  year: 2024
+  org: RobotEra
+  summary: RL framework for humanoid locomotion with zero-shot sim-to-real verification.
+  paper: https://arxiv.org/abs/2404.05695
+  code: https://github.com/roboterax/humanoid-gym
+  tags: [locomotion, sim-to-real]
+- id: legged-gym
+  name: legged_gym
+  section: humanoid
+  year: 2021
+  org: ETH Zurich (RSL)
+  summary: Massively parallel locomotion RL in Isaac Gym ("learning to walk in minutes").
+  paper: https://arxiv.org/abs/2109.11978
+  code: https://github.com/leggedrobotics/legged_gym
+  tags: [locomotion, quadruped, baseline]
+
+# ───────────────────────── World models
+- id: cosmos
+  name: NVIDIA Cosmos (world foundation models)
+  section: world_model
+  year: 2025
+  org: NVIDIA
+  summary: Open world foundation models for generating physical-AI training video and synthetic data.
+  paper: https://arxiv.org/abs/2501.03575
+  project: https://www.nvidia.com/en-us/ai/cosmos/
+  code: https://github.com/nvidia-cosmos/cosmos-predict2
+  tags: [video-world-model, synthetic-data]
+- id: vjepa2
+  name: V-JEPA 2
+  section: world_model
+  year: 2025
+  org: Meta FAIR
+  summary: Self-supervised video world model; V-JEPA 2-AC plans zero-shot robot manipulation.
+  paper: https://arxiv.org/abs/2506.09985
+  code: https://github.com/facebookresearch/vjepa2
+  tags: [latent-world-model, planning]
+- id: unisim
+  name: UniSim
+  section: world_model
+  year: 2023
+  org: Google DeepMind, UC Berkeley
+  summary: Learned interactive real-world simulator from diverse video for training agents.
+  paper: https://arxiv.org/abs/2310.06114
+  project: https://universal-simulator.github.io/unisim/
+  tags: [video-world-model]
+- id: dreamerv3
+  name: DreamerV3
+  section: world_model
+  year: 2023
+  org: DeepMind
+  summary: General model-based RL agent learning a latent world model across 150+ tasks.
+  paper: https://arxiv.org/abs/2301.04104
+  project: https://danijar.com/project/dreamerv3/
+  code: https://github.com/danijar/dreamerv3
+  tags: [model-based-rl]
+
+# ───────────────────────── Manipulation benchmarks
+- id: libero
+  name: LIBERO
+  section: bench_manip
+  year: 2023
+  org: UT Austin
+  summary: 130 language-conditioned tasks in 4 suites (Spatial/Object/Goal/Long); today's most-reported VLA sim benchmark.
+  paper: https://arxiv.org/abs/2306.03310
+  project: https://libero-project.github.io/
+  code: https://github.com/Lifelong-Robot-Learning/LIBERO
+  tags: [sim, language, saturating]
+- id: calvin
+  name: CALVIN
+  section: bench_manip
+  year: 2021
+  org: University of Freiburg
+  summary: Long-horizon language-conditioned tabletop benchmark; reports average chain length of 5 instructions.
+  paper: https://arxiv.org/abs/2112.03227
+  code: https://github.com/mees/calvin
+  tags: [sim, long-horizon, language]
+- id: simplerenv
+  name: SimplerEnv
+  section: bench_manip
+  year: 2024
+  org: UC San Diego, Stanford, UC Berkeley, Google DeepMind
+  summary: Sim environments built to correlate with real Google Robot / WidowX policy rankings.
+  paper: https://arxiv.org/abs/2405.05941
+  project: https://simpler-env.github.io/
+  code: https://github.com/simpler-env/SimplerEnv
+  tags: [real-to-sim, generalist-policies]
+- id: maniskill3
+  name: ManiSkill3
+  section: bench_manip
+  year: 2024
+  org: UC San Diego (Hao Su Lab)
+  summary: GPU-parallelized simulation and rendering benchmark for generalizable manipulation.
+  paper: https://arxiv.org/abs/2410.00425
+  project: https://www.maniskill.ai/
+  code: https://github.com/mani-skill/ManiSkill
+  tags: [gpu-parallel, sim]
+- id: rlbench
+  name: RLBench
+  section: bench_manip
+  year: 2019
+  org: Imperial College London
+  summary: 100 hand-designed manipulation tasks in CoppeliaSim; standard for 3D keyframe policies.
+  paper: https://arxiv.org/abs/1909.12271
+  project: https://sites.google.com/view/rlbench
+  code: https://github.com/stepjam/RLBench
+  tags: [sim, keyframe]
+- id: colosseum
+  name: The Colosseum
+  section: bench_manip
+  year: 2024
+  org: University of Washington, NVIDIA
+  summary: RLBench extension with 14 perturbation axes to measure generalization drops.
+  paper: https://arxiv.org/abs/2402.08191
+  project: https://robot-colosseum.github.io/
+  code: https://github.com/robot-colosseum/robot-colosseum
+  tags: [robustness, perturbations]
+- id: metaworld
+  name: Meta-World
+  section: bench_manip
+  year: 2019
+  org: Stanford, UC Berkeley
+  summary: 50 MuJoCo manipulation tasks for multi-task and meta-RL (MT/ML suites).
+  paper: https://arxiv.org/abs/1910.10897
+  project: https://meta-world.github.io/
+  code: https://github.com/Farama-Foundation/Metaworld
+  tags: [sim, multi-task, rl]
+- id: robocasa
+  name: RoboCasa
+  section: bench_manip
+  year: 2024
+  org: UT Austin, NVIDIA
+  summary: Large-scale simulated kitchens with generative assets for everyday household tasks.
+  paper: https://arxiv.org/abs/2406.02523
+  project: https://robocasa.ai/
+  code: https://github.com/robocasa/robocasa
+  tags: [household, mobile-manipulation]
+- id: vlabench
+  name: VLABench
+  section: bench_manip
+  year: 2024
+  org: Fudan University
+  summary: Language-conditioned long-horizon benchmark probing world knowledge and reasoning in VLAs.
+  paper: https://arxiv.org/abs/2412.18194
+  project: https://vlabench.github.io/
+  code: https://github.com/OpenMOSS/VLABench
+  tags: [reasoning, vla]
+- id: robotwin2
+  name: RoboTwin 2.0
+  section: bench_manip
+  year: 2025
+  org: HKU, AgileX and others
+  summary: Scalable bimanual data generator and benchmark with strong domain randomization.
+  paper: https://arxiv.org/abs/2506.18088
+  project: https://robotwin-platform.github.io/
+  code: https://github.com/RoboTwin-Platform/RoboTwin
+  tags: [bimanual, domain-randomization]
+- id: robomimic
+  name: robomimic
+  section: bench_manip
+  year: 2021
+  org: Stanford, UT Austin
+  summary: Framework and benchmark of human-demo datasets for offline imitation learning.
+  paper: https://arxiv.org/abs/2108.03298
+  project: https://robomimic.github.io/
+  code: https://github.com/ARISE-Initiative/robomimic
+  tags: [imitation, datasets]
+- id: furniturebench
+  name: FurnitureBench
+  section: bench_manip
+  year: 2023
+  org: KAIST, UC Berkeley
+  summary: Reproducible real-world long-horizon furniture assembly benchmark (with a sim twin).
+  paper: https://arxiv.org/abs/2305.12821
+  project: https://clvrai.github.io/furniture-bench/
+  code: https://github.com/clvrai/furniture-bench
+  tags: [real-world, assembly]
+- id: bidexhands
+  name: Bi-DexHands
+  section: bench_manip
+  year: 2022
+  org: Peking University
+  summary: Bimanual dexterous-hand RL benchmark in Isaac Gym.
+  paper: https://arxiv.org/abs/2206.08686
+  code: https://github.com/PKU-MARL/DexterousHands
+  tags: [dexterous, rl]
+- id: vima-bench
+  name: VIMA-Bench
+  section: bench_manip
+  year: 2022
+  org: Stanford, NVIDIA
+  summary: 17 multimodal-prompt task families with 4 levels of systematic generalization.
+  paper: https://arxiv.org/abs/2210.03094
+  code: https://github.com/vimalabs/VimaBench
+  tags: [generalization-levels]
+- id: arnold
+  name: ARNOLD
+  section: bench_manip
+  year: 2023
+  org: UCLA, BIGAI
+  summary: Language-grounded task learning with continuous object states in realistic 3D scenes.
+  paper: https://arxiv.org/abs/2304.04321
+  project: https://arnold-benchmark.github.io/
+  code: https://github.com/arnold-benchmark/arnold
+  tags: [continuous-states]
+
+# ───────────────────────── Embodied reasoning, navigation & household benchmarks
+- id: behavior-1k
+  name: BEHAVIOR-1K
+  section: bench_embodied
+  year: 2024
+  org: Stanford
+  summary: 1,000 everyday activities defined from a survey of human needs, simulated in OmniGibson.
+  paper: https://arxiv.org/abs/2403.09227
+  project: https://behavior.stanford.edu/
+  code: https://github.com/StanfordVL/BEHAVIOR-1K
+  tags: [household, long-horizon, mobile-manipulation]
+- id: habitat3
+  name: Habitat 3.0
+  section: bench_embodied
+  year: 2023
+  org: Meta FAIR
+  summary: Co-habitat for humans, avatars and robots; social navigation and rearrangement tasks.
+  paper: https://arxiv.org/abs/2310.13724
+  project: https://aihabitat.org/habitat3/
+  code: https://github.com/facebookresearch/habitat-lab
+  tags: [navigation, human-robot]
+- id: alfred
+  name: ALFRED
+  section: bench_embodied
+  year: 2020
+  org: University of Washington, AI2
+  summary: Language instructions → action sequences for household tasks in AI2-THOR.
+  paper: https://arxiv.org/abs/1912.01734
+  project: https://askforalfred.com/
+  code: https://github.com/askforalfred/alfred
+  tags: [instruction-following, household]
+- id: vln-ce
+  name: VLN-CE
+  section: bench_embodied
+  year: 2020
+  org: Oregon State, Georgia Tech, Meta
+  summary: Vision-and-language navigation in continuous environments (Habitat).
+  paper: https://arxiv.org/abs/2004.02857
+  project: https://jacobkrantz.github.io/vlnce/
+  code: https://github.com/jacobkrantz/VLN-CE
+  tags: [navigation, language]
+- id: embodiedbench
+  name: EmbodiedBench
+  section: bench_embodied
+  year: 2025
+  org: UIUC and others
+  summary: Evaluates multimodal LLMs as embodied agents from high-level planning to low-level manipulation.
+  paper: https://arxiv.org/abs/2502.09560
+  project: https://embodiedbench.github.io/
+  code: https://github.com/EmbodiedBench/EmbodiedBench
+  tags: [mllm-agents]
+- id: embodied-agent-interface
+  name: Embodied Agent Interface
+  section: bench_embodied
+  year: 2024
+  org: Stanford
+  summary: Fine-grained error taxonomy for LLMs on goal interpretation, subgoals, action sequencing and transition modeling.
+  paper: https://arxiv.org/abs/2410.07166
+  project: https://embodied-agent-interface.github.io/
+  code: https://github.com/embodied-agent-interface/embodied-agent-interface
+  tags: [llm-agents, error-analysis]
+- id: openeqa
+  name: OpenEQA
+  section: bench_embodied
+  year: 2024
+  org: Meta FAIR
+  summary: Open-vocabulary embodied question answering from episodic memory and active exploration.
+  paper: https://open-eqa.github.io/assets/pdfs/paper.pdf
+  project: https://open-eqa.github.io/
+  code: https://github.com/facebookresearch/open-eqa
+  tags: [eqa, memory]
+- id: erqa
+  name: ERQA (Embodied Reasoning QA)
+  section: bench_embodied
+  year: 2025
+  org: Google DeepMind
+  summary: Multiple-choice VQA benchmark for embodied spatial and physical reasoning, released with Gemini Robotics.
+  paper: https://arxiv.org/abs/2503.20020
+  code: https://github.com/embodiedreasoning/ERQA
+  tags: [vqa, spatial-reasoning]
+- id: humanoidbench
+  name: HumanoidBench
+  section: bench_embodied
+  year: 2024
+  org: UC Berkeley, Yonsei
+  summary: 27 simulated humanoid locomotion and whole-body manipulation tasks.
+  paper: https://arxiv.org/abs/2403.10506
+  project: https://humanoid-bench.github.io/
+  code: https://github.com/carlosferrazza/humanoid-bench
+  tags: [humanoid, whole-body]
+- id: habitat-challenge
+  name: Habitat Navigation Challenge
+  section: bench_embodied
+  year: 2019
+  org: Meta FAIR and partners
+  summary: Annual ObjectNav / ImageNav challenge with a hosted EvalAI leaderboard.
+  project: https://aihabitat.org/challenge/
+  tags: [navigation, leaderboard]
+
+# ───────────────────────── Real-world & distributed evaluation
+- id: roboarena
+  name: RoboArena
+  section: bench_real
+  year: 2025
+  org: UC Berkeley, Stanford, UW and others
+  summary: Crowd-sourced, double-blind pairwise real-robot evaluation of generalist policies on DROID setups.
+  paper: https://arxiv.org/abs/2506.18123
+  project: https://robo-arena.github.io/
+  tags: [real-world, pairwise, leaderboard]
+- id: autoeval
+  name: AutoEval
+  section: bench_real
+  year: 2025
+  org: UC Berkeley
+  summary: Autonomous real-world evaluation stations (with learned reset and success detection) open to the public.
+  paper: https://arxiv.org/abs/2503.24278
+  project: https://auto-eval.github.io/
+  tags: [real-world, autonomous-eval]
+- id: robochallenge
+  name: RoboChallenge
+  section: bench_real
+  year: 2025
+  org: RoboChallenge
+  summary: Hosted real-robot benchmark (Table30, Table30 V2, ZERO) where submitted VLA/VLM policies run on physical robots.
+  project: https://robochallenge.ai/
+  tags: [real-world, leaderboard]
+- id: robocup-home
+  name: RoboCup@Home
+  section: bench_real
+  year: 2006
+  org: RoboCup Federation
+  summary: Annual service-robot competition with standardized domestic tasks scored by referees.
+  project: https://athome.robocup.org/
+  tags: [competition, service-robots]
+- id: ycb
+  name: YCB Object and Model Set
+  section: bench_real
+  year: 2015
+  org: Yale, CMU, UC Berkeley
+  summary: Shared physical object set and protocols for reproducible manipulation benchmarking.
+  paper: https://arxiv.org/abs/1502.03143
+  tags: [physical-objects, protocols]
+
+# ───────────────────────── First-responder & disaster robotics evals (the Patriot lens)
+- id: darpa-drc
+  name: DARPA Robotics Challenge (DRC)
+  section: responder
+  year: 2015
+  org: DARPA
+  summary: 2012–2015 disaster-response challenge — drive a vehicle, egress, open a door, turn a valve, cut drywall, cross rubble, climb stairs.
+  paper: https://doi.org/10.1002/rob.21683
+  project: https://www.darpa.mil/research/programs/darpa-robotics-challenge
+  tags: [humanoid, disaster, competition]
+- id: darpa-subt
+  name: DARPA Subterranean (SubT) Challenge
+  section: responder
+  year: 2021
+  org: DARPA
+  summary: Autonomous robot teams mapping and searching tunnels, urban underground and caves under comms loss.
+  project: https://www.darpa.mil/research/challenges/subterranean
+  tags: [subterranean, multi-robot, search]
+- id: subt-virtual
+  name: SubT Virtual Competition (simulator & worlds)
+  section: responder
+  year: 2021
+  org: Open Robotics, DARPA
+  summary: Open-source Gazebo-based SubT simulation, worlds and robot models used in the virtual track.
+  code: https://github.com/osrf/subt
+  tags: [simulator, subterranean]
+- id: cerberus-subt
+  name: CERBERUS (SubT Final winner)
+  section: responder
+  year: 2022
+  org: NTNU, ETH Zurich, UC Berkeley and others
+  summary: Field report of the legged + aerial team that won the SubT Final Event.
+  paper: https://arxiv.org/abs/2207.04914
+  tags: [field-report, legged, subterranean]
+- id: nebula
+  name: NeBula (Team CoSTAR)
+  section: responder
+  year: 2021
+  org: NASA JPL, Caltech, MIT, KAIST and others
+  summary: Uncertainty-aware autonomy architecture for SubT exploration across robot types.
+  paper: https://arxiv.org/abs/2103.11470
+  tags: [autonomy-architecture, subterranean]
+- id: darpa-triage
+  name: DARPA Triage Challenge
+  section: responder
+  year: 2024
+  org: DARPA
+  summary: Multi-year challenge on autonomous detection of physiological signatures for mass-casualty triage.
+  project: https://triagechallenge.darpa.mil/
+  tags: [medical, triage, competition]
+- id: nist-response-robots
+  name: NIST Standard Test Methods for Response Robots
+  section: responder
+  year: 2005
+  org: NIST
+  summary: ASTM-standardized test methods (mobility, manipulation, sensors, comms, endurance) for emergency response robots.
+  project: https://www.nist.gov/el/intelligent-systems-division-73500/standard-test-methods-response-robots
+  tags: [standards, test-methods]
+- id: robocup-rescue
+  name: RoboCup Rescue Robot League
+  section: responder
+  year: 2001
+  org: RoboCup Federation
+  summary: Competition using NIST-style test lanes for mobility, dexterity and victim detection.
+  project: https://rrl.robocup.org/
+  tags: [competition, test-lanes]
+- id: robocup-rescue-sim
+  name: RoboCup Rescue Simulation League
+  section: responder
+  year: 2001
+  org: RoboCup Federation
+  summary: Multi-agent simulation of earthquake response (fire brigades, ambulances, police).
+  project: https://rescuesim.robocup.org/
+  tags: [multi-agent, simulation]
+- id: mbzirc
+  name: MBZIRC
+  section: responder
+  year: 2017
+  org: Khalifa University
+  summary: International robotics challenge; 2020 Challenge 3 had UAV/UGV teams autonomously extinguish fires in a high-rise mock-up (paper = a team report).
+  paper: https://arxiv.org/abs/2104.01834
+  project: https://www.ku.ac.ae/using-drones-to-fight-high-rise-building-fires-presents-a-real-challenge-in-the-mohamed-bin-zayed-international-robotics-challenge-2020
+  tags: [firefighting, multi-robot]
+- id: world-robot-summit
+  name: World Robot Summit — Disaster Robotics
+  section: responder
+  year: 2018
+  org: METI / NEDO (Japan)
+  summary: Plant disaster prevention, tunnel disaster response and standard disaster robotics challenges.
+  project: https://worldrobotsummit.org/en/
+  tags: [competition, tunnel, plant]
+- id: elrob
+  name: ELROB (European Land Robot Trial)
+  section: responder
+  year: 2006
+  org: FKIE / European partners
+  summary: Field trials for unmanned ground systems including reconnaissance, CBRN and rescue scenarios.
+  project: https://www.elrob.org/
+  tags: [field-trials, cbrn]
+- id: centauro
+  name: CENTAURO
+  section: responder
+  year: 2019
+  org: EU Horizon 2020 consortium
+  summary: Centaur-like disaster-response robot evaluated on realistic nuclear/rubble/door/tool tasks.
+  paper: https://arxiv.org/abs/1909.08812
+  project: https://www.centauro-project.eu/
+  tags: [disaster, tool-use, hybrid-morphology]
+
+# ───────────────────────── Simulators & physics engines
+- id: mujoco
+  name: MuJoCo
+  section: simulator
+  year: 2012
+  org: Google DeepMind
+  summary: Fast, accurate contact-rich physics engine; default for policy research.
+  project: https://mujoco.org/
+  code: https://github.com/google-deepmind/mujoco
+  tags: [physics, cpu, jax-mjx]
+- id: mujoco-playground
+  name: MuJoCo Playground
+  section: simulator
+  year: 2025
+  org: Google DeepMind, UC Berkeley and others
+  summary: GPU (MJX) environments for locomotion and manipulation with sim-to-real recipes.
+  paper: https://arxiv.org/abs/2502.08844
+  code: https://github.com/google-deepmind/mujoco_playground
+  tags: [gpu, sim-to-real]
+- id: menagerie
+  name: MuJoCo Menagerie
+  section: simulator
+  year: 2022
+  org: Google DeepMind
+  summary: Curated, high-quality robot models (humanoids, quadrupeds, arms, hands) for MuJoCo.
+  code: https://github.com/google-deepmind/mujoco_menagerie
+  tags: [robot-models]
+- id: isaac-lab
+  name: Isaac Lab
+  section: simulator
+  year: 2023
+  org: NVIDIA
+  summary: GPU-accelerated robot learning framework on Isaac Sim (successor to Orbit / Isaac Gym envs).
+  paper: https://arxiv.org/abs/2301.04195
+  project: https://isaac-sim.github.io/IsaacLab/
+  code: https://github.com/isaac-sim/IsaacLab
+  tags: [gpu, rl, photoreal]
+- id: genesis
+  name: Genesis
+  section: simulator
+  year: 2024
+  org: Genesis-Embodied-AI
+  summary: Universal Python physics platform (rigid, soft, fluid) for robotics and embodied AI.
+  project: https://genesis-embodied-ai.github.io/
+  code: https://github.com/Genesis-Embodied-AI/genesis-world
+  tags: [multi-physics, gpu]
+- id: newton
+  name: Newton
+  section: simulator
+  year: 2025
+  org: Linux Foundation (NVIDIA, Google DeepMind, Disney Research)
+  summary: Open-source GPU physics engine built on NVIDIA Warp for robot learning.
+  code: https://github.com/newton-physics/newton
+  tags: [gpu, physics]
+- id: sapien
+  name: SAPIEN
+  section: simulator
+  year: 2020
+  org: UC San Diego
+  summary: Physics-rich simulator for articulated objects; backend of ManiSkill.
+  paper: https://arxiv.org/abs/2003.08515
+  code: https://github.com/haosulab/SAPIEN
+  tags: [articulated-objects]
+- id: habitat-sim
+  name: Habitat-Sim
+  section: simulator
+  year: 2019
+  org: Meta FAIR
+  summary: High-throughput 3D simulator for embodied navigation and rearrangement.
+  paper: https://arxiv.org/abs/1904.01201
+  project: https://aihabitat.org/
+  code: https://github.com/facebookresearch/habitat-sim
+  tags: [navigation, fast-rendering]
+- id: ai2thor
+  name: AI2-THOR / ProcTHOR
+  section: simulator
+  year: 2017
+  org: Allen Institute for AI
+  summary: Interactive household simulator; ProcTHOR procedurally generates 10k+ houses.
+  paper: https://arxiv.org/abs/1712.05474
+  project: https://ai2thor.allenai.org/
+  code: https://github.com/allenai/ai2thor
+  tags: [household, procedural]
+- id: robosuite
+  name: robosuite
+  section: simulator
+  year: 2020
+  org: Stanford, UT Austin
+  summary: Modular MuJoCo-based manipulation simulation framework and benchmark.
+  paper: https://arxiv.org/abs/2009.12293
+  project: https://robosuite.ai/
+  code: https://github.com/ARISE-Initiative/robosuite
+  tags: [manipulation, modular]
+- id: pybullet
+  name: PyBullet
+  section: simulator
+  year: 2016
+  org: Bullet Physics
+  summary: Python bindings for the Bullet physics SDK; lightweight and widely used.
+  project: https://pybullet.org/
+  code: https://github.com/bulletphysics/bullet3
+  tags: [physics, lightweight]
+- id: gazebo
+  name: Gazebo
+  section: simulator
+  year: 2004
+  org: Open Robotics
+  summary: ROS-native robot simulator used by DARPA SubT virtual and many field robots.
+  project: https://gazebosim.org/
+  code: https://github.com/gazebosim/gz-sim
+  tags: [ros, field-robotics]
+- id: webots
+  name: Webots
+  section: simulator
+  year: 1998
+  org: Cyberbotics
+  summary: Open-source multi-platform robot simulator with a large robot library.
+  project: https://cyberbotics.com/
+  code: https://github.com/cyberbotics/webots
+  tags: [education, general-purpose]
+- id: drake
+  name: Drake
+  section: simulator
+  year: 2014
+  org: Toyota Research Institute, MIT
+  summary: Model-based design, optimization and simulation toolbox with rigorous contact.
+  project: https://drake.mit.edu/
+  code: https://github.com/RobotLocomotion/drake
+  tags: [optimization, contact]
+- id: brax
+  name: Brax
+  section: simulator
+  year: 2021
+  org: Google
+  summary: Differentiable JAX physics for massively parallel RL.
+  paper: https://arxiv.org/abs/2106.13281
+  code: https://github.com/google/brax
+  tags: [jax, differentiable]
+- id: airsim
+  name: AirSim
+  section: simulator
+  year: 2017
+  org: Microsoft
+  summary: Unreal Engine-based drone and vehicle simulator widely used for aerial search and inspection research.
+  paper: https://arxiv.org/abs/1705.05065
+  code: https://github.com/microsoft/AirSim
+  tags: [drones, aerial]
+- id: coppeliasim
+  name: CoppeliaSim
+  section: simulator
+  year: 2010
+  org: Coppelia Robotics
+  summary: General-purpose robot simulator (formerly V-REP); backend of RLBench.
+  project: https://www.coppeliarobotics.com/
+  tags: [general-purpose]
+
+# ───────────────────────── Datasets
+- id: oxe
+  name: Open X-Embodiment
+  section: dataset
+  year: 2023
+  org: 21 institutions
+  summary: 1M+ real trajectories across 22 robot embodiments, pooled in RLDS format.
+  paper: https://arxiv.org/abs/2310.08864
+  project: https://robotics-transformer-x.github.io/
+  code: https://github.com/google-deepmind/open_x_embodiment
+  tags: [cross-embodiment, rlds]
+- id: droid
+  name: DROID
+  section: dataset
+  year: 2024
+  org: Stanford, UC Berkeley, TRI and others
+  summary: 76k in-the-wild Franka teleop trajectories across 564 scenes and 86 tasks.
+  paper: https://arxiv.org/abs/2403.12945
+  project: https://droid-dataset.github.io/
+  code: https://github.com/droid-dataset/droid
+  tags: [in-the-wild, franka]
+- id: bridgev2
+  name: BridgeData V2
+  section: dataset
+  year: 2023
+  org: UC Berkeley
+  summary: 60k WidowX trajectories across 24 environments for generalizable skills.
+  paper: https://arxiv.org/abs/2308.12952
+  project: https://rail-berkeley.github.io/bridgedata/
+  tags: [widowx, low-cost]
+- id: agibot-world
+  name: AgiBot World
+  section: dataset
+  year: 2025
+  org: AgiBot, Shanghai AI Lab
+  summary: Large-scale humanoid/dual-arm manipulation dataset collected in a dedicated data factory.
+  paper: https://arxiv.org/abs/2503.06669
+  project: https://agibot-world.com/
+  code: https://github.com/OpenDriveLab/AgiBot-World
+  tags: [humanoid, large-scale]
+- id: rh20t
+  name: RH20T
+  section: dataset
+  year: 2023
+  org: Shanghai Jiao Tong University
+  summary: Multi-modal (force, audio, depth) contact-rich manipulation dataset with paired human videos.
+  paper: https://arxiv.org/abs/2307.00595
+  project: https://rh20t.github.io/
+  tags: [multimodal, force]
+- id: ego4d
+  name: Ego4D
+  section: dataset
+  year: 2021
+  org: Meta-led academic consortium
+  summary: 3,670 hours of egocentric video; common pretraining source for robot representations.
+  paper: https://arxiv.org/abs/2110.07058
+  project: https://ego4d-data.org/
+  tags: [egocentric, human-video]
+- id: egodex
+  name: EgoDex
+  section: dataset
+  year: 2025
+  org: Apple
+  summary: 829 hours of egocentric video with 3D hand/finger tracking for dexterous manipulation.
+  paper: https://arxiv.org/abs/2505.11709
+  tags: [egocentric, dexterous, hand-pose]
+- id: language-table
+  name: Language-Table
+  section: dataset
+  year: 2022
+  org: Google
+  summary: ~600k language-annotated trajectories for interactive real-time language-guided pushing.
+  paper: https://arxiv.org/abs/2210.06407
+  project: https://interactive-language.github.io/
+  code: https://github.com/google-research/language-table
+  tags: [language, real-time]
+- id: robonet
+  name: RoboNet
+  section: dataset
+  year: 2019
+  org: UC Berkeley, Stanford, UPenn
+  summary: Early multi-robot dataset (15M frames, 7 platforms) for transferable visual models.
+  paper: https://arxiv.org/abs/1910.11215
+  project: https://www.robonet.wiki/
+  tags: [multi-robot]
+- id: gr00t-sim-data
+  name: PhysicalAI-Robotics-GR00T-X-Embodiment-Sim
+  section: dataset
+  year: 2025
+  org: NVIDIA
+  summary: Synthetic humanoid and arm trajectories released alongside GR00T N1.
+  weights: https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim
+  tags: [synthetic, humanoid]
+- id: lerobot-hub
+  name: LeRobot community datasets
+  section: dataset
+  year: 2024
+  org: Hugging Face community
+  summary: Thousands of community-uploaded robot datasets in the LeRobot format on the Hub.
+  project: https://huggingface.co/lerobot
+  tags: [community, so-100]
+- id: mimicgen
+  name: MimicGen
+  section: dataset
+  year: 2023
+  org: NVIDIA, UT Austin
+  summary: Generates 50k+ demos from ~200 human demos by adapting them to new scenes.
+  paper: https://arxiv.org/abs/2310.17596
+  project: https://mimicgen.github.io/
+  code: https://github.com/NVlabs/mimicgen
+  tags: [data-generation]
+
+# ───────────────────────── Tooling, frameworks & data-collection hardware
+- id: lerobot
+  name: LeRobot
+  section: tooling
+  year: 2024
+  org: Hugging Face
+  summary: End-to-end PyTorch library for real-robot datasets, policies (ACT, Diffusion, SmolVLA, π0) and hardware.
+  code: https://github.com/huggingface/lerobot
+  project: https://huggingface.co/lerobot
+  tags: [framework, training]
+- id: openpi
+  name: openpi
+  section: tooling
+  year: 2025
+  org: Physical Intelligence
+  summary: Code and checkpoints for π0, π0-FAST and π0.5 with fine-tuning examples.
+  code: https://github.com/Physical-Intelligence/openpi
+  tags: [framework, checkpoints]
+- id: isaac-gr00t
+  name: Isaac GR00T
+  section: tooling
+  year: 2025
+  org: NVIDIA
+  summary: Fine-tuning and deployment code for GR00T N1.x humanoid models.
+  code: https://github.com/NVIDIA/Isaac-GR00T
+  tags: [humanoid, framework]
+- id: rlds
+  name: RLDS
+  section: tooling
+  year: 2021
+  org: Google Research
+  summary: Episode/step dataset format used by Open X-Embodiment.
+  paper: https://arxiv.org/abs/2111.02767
+  code: https://github.com/google-research/rlds
+  tags: [data-format]
+- id: ros2
+  name: ROS 2
+  section: tooling
+  year: 2017
+  org: Open Robotics
+  summary: The standard robotics middleware; real-time-capable successor to ROS.
+  project: https://docs.ros.org/
+  code: https://github.com/ros2/ros2
+  tags: [middleware]
+- id: moveit2
+  name: MoveIt 2
+  section: tooling
+  year: 2019
+  org: PickNik and community
+  summary: Motion planning, manipulation and collision checking for ROS 2.
+  project: https://moveit.ai/
+  code: https://github.com/moveit/moveit2
+  tags: [motion-planning]
+- id: nav2
+  name: Nav2
+  section: tooling
+  year: 2020
+  org: Open Navigation and community
+  summary: ROS 2 navigation stack with behavior trees.
+  project: https://docs.nav2.org/
+  code: https://github.com/ros-navigation/navigation2
+  tags: [navigation]
+- id: dora-rs
+  name: dora-rs
+  section: tooling
+  year: 2022
+  org: dora-rs community
+  summary: Low-latency dataflow middleware for AI-based robotic applications.
+  project: https://dora-rs.ai/
+  code: https://github.com/dora-rs/dora
+  tags: [middleware, rust]
+- id: rerun
+  name: Rerun
+  section: tooling
+  year: 2022
+  org: Rerun
+  summary: Multimodal logging and visualization SDK widely used for robot data.
+  project: https://rerun.io/
+  code: https://github.com/rerun-io/rerun
+  tags: [visualization]
+- id: umi
+  name: UMI (Universal Manipulation Interface)
+  section: tooling
+  year: 2024
+  org: Stanford, Columbia, TRI
+  summary: Hand-held gripper data collector whose demos transfer directly to robot policies.
+  paper: https://arxiv.org/abs/2402.10329
+  project: https://umi-gripper.github.io/
+  code: https://github.com/real-stanford/universal_manipulation_interface
+  tags: [data-collection, in-the-wild]
+- id: gello
+  name: GELLO
+  section: tooling
+  year: 2023
+  org: UC Berkeley
+  summary: Low-cost kinematically-matched teleoperation leader arms.
+  paper: https://arxiv.org/abs/2309.13037
+  project: https://wuphilipp.github.io/gello_site/
+  code: https://github.com/wuphilipp/gello_software
+  tags: [teleop, low-cost]
+- id: open-television
+  name: Open-TeleVision
+  section: tooling
+  year: 2024
+  org: UC San Diego, MIT
+  summary: Immersive VR teleoperation with active stereo vision for humanoids.
+  paper: https://arxiv.org/abs/2407.01512
+  project: https://robot-tv.github.io/
+  code: https://github.com/OpenTeleVision/TeleVision
+  tags: [teleop, vr, humanoid]
+- id: aloha-hw
+  name: ALOHA hardware
+  section: tooling
+  year: 2023
+  org: Stanford
+  summary: Open-source low-cost bimanual teleoperation rig.
+  code: https://github.com/tonyzhaozh/aloha
+  tags: [hardware, bimanual]
+- id: so-arm100
+  name: SO-ARM100 / SO-101
+  section: tooling
+  year: 2024
+  org: The Robot Studio, Hugging Face
+  summary: Low-cost 3D-printable arm design used widely by the LeRobot community.
+  code: https://github.com/TheRobotStudio/SO-ARM100
+  tags: [hardware, low-cost]
+- id: rsl-rl
+  name: RSL-RL
+  section: tooling
+  year: 2022
+  org: ETH Zurich (RSL)
+  summary: Fast GPU PPO implementation used by legged_gym and Isaac Lab.
+  code: https://github.com/leggedrobotics/rsl_rl
+  tags: [rl-library]

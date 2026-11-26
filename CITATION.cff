@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this atlas, please cite it as below."
+title: "Robot Agents & Evals Atlas"
+abstract: "A receipts-first, data-driven atlas of robot foundation models, embodied agents, benchmarks, simulators, datasets and tooling, with cited benchmark scores and a Disaster-Response Eval Gap Map."
+authors:
+  - name: "Bunker XY"
+    website: "https://bunkerxy.com"
+type: dataset
+license: CC-BY-4.0
+repository-code: "https://github.com/BunkerXY/awesome-robot-agents-evals"
+keywords: [robotics, embodied-ai, vision-language-action, benchmarks, evaluation, humanoid, disaster-response]
+date-released: "2026-11-26"
+version: "0.1.0"

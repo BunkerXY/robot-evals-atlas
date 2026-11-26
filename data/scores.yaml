@@ -1,0 +1,62 @@
+# Reported benchmark scores. RULE: every number must point to the exact paper table / README / leaderboard it came from.
+# Numbers are copied as published; they are NOT re-run by us. Different sources use different protocols (see `setting`).
+sources:
+  oft_t1:
+    title: "OpenVLA-OFT paper (Kim et al., 2025), Table I"
+    url: https://arxiv.org/abs/2502.19645
+    note: "Baselines from original papers or Kim et al. 2024; 500 trials per suite for OpenVLA variants; modified (filtered) LIBERO training data."
+  smolvla_t2:
+    title: "SmolVLA paper (Shukor et al., 2025), Table 2"
+    url: https://arxiv.org/abs/2506.01844
+    note: "Multi-task training; 10 trials per task; π0 numbers here are re-trained by the SmolVLA authors."
+  openpi_libero:
+    title: "openpi LIBERO example README (Physical Intelligence)"
+    url: https://github.com/Physical-Intelligence/openpi/blob/main/examples/libero/README.md
+    note: "π0.5 fine-tuned 30k steps on LIBERO, checkpoint pi05_libero."
+  seer_calvin:
+    title: "Seer paper (Tian et al., 2024), CALVIN ABC→D table"
+    url: https://arxiv.org/abs/2412.15109
+    note: "Average number of consecutively completed tasks out of 5 (Avg. Len.), 1000 rollouts."
+  cogact_simpler:
+    title: "CogACT paper (Li et al., 2024), Tables 1–2"
+    url: https://arxiv.org/abs/2411.19650
+    note: "SIMPLER Visual Matching averages; all models trained on Open X-Embodiment except RT-1."
+
+benchmarks:
+  libero_avg: {name: "LIBERO avg SR (%)", entry: libero}
+  calvin_abc_d: {name: "CALVIN ABC→D Avg. Len.", entry: calvin}
+  simpler_google_vm: {name: "SimplerEnv Google Robot VM avg (%)", entry: simplerenv}
+  simpler_widowx_vm: {name: "SimplerEnv WidowX VM avg (%)", entry: simplerenv}
+  metaworld_mt50: {name: "Meta-World MT50 avg SR (%)", entry: metaworld}
+
+scores:
+  # LIBERO (average over Spatial / Object / Goal / Long)
+  - {entry: diffusion-policy, bench: libero_avg, value: 72.4, source: oft_t1, setting: "scratch, 3rd-person image"}
+  - {entry: octo, bench: libero_avg, value: 75.1, source: oft_t1, setting: "fine-tuned, 3rd-person image"}
+  - {entry: openvla, bench: libero_avg, value: 76.5, source: oft_t1, setting: "fine-tuned, 3rd-person image"}
+  - {entry: openvla-oft, bench: libero_avg, value: 97.1, source: oft_t1, setting: "+ wrist cam + proprio, filtered data"}
+  - {entry: pi0, bench: libero_avg, value: 94.2, source: oft_t1, setting: "fine-tuned; baseline as cited in OFT Table I"}
+  - {entry: pi0, bench: libero_avg, value: 86.0, source: smolvla_t2, setting: "3.3B, re-trained by SmolVLA authors"}
+  - {entry: pi0-fast, bench: libero_avg, value: 85.5, source: oft_t1, setting: "fine-tuned"}
+  - {entry: smolvla, bench: libero_avg, value: 87.3, source: smolvla_t2, setting: "0.45B, no robot pretraining"}
+  - {entry: pi05, bench: libero_avg, value: 96.85, source: openpi_libero, setting: "fine-tuned 30k steps"}
+  # CALVIN ABC→D
+  - {entry: roboflamingo, bench: calvin_abc_d, value: 2.47, source: seer_calvin}
+  - {entry: gr-1, bench: calvin_abc_d, value: 3.06, source: seer_calvin}
+  - {entry: 3d-diffuser-actor, bench: calvin_abc_d, value: 3.27, source: seer_calvin}
+  - {entry: seer, bench: calvin_abc_d, value: 3.98, source: seer_calvin, setting: "Seer (standard); Seer-Large reports 4.28"}
+  # SimplerEnv Visual Matching
+  - {entry: rt-1, bench: simpler_google_vm, value: 52.4, source: cogact_simpler}
+  - {entry: rt-x, bench: simpler_google_vm, value: 46.3, source: cogact_simpler, setting: "RT-2-X (RT-1-X: 42.4)"}
+  - {entry: octo, bench: simpler_google_vm, value: 11.0, source: cogact_simpler, setting: "Octo-Base"}
+  - {entry: openvla, bench: simpler_google_vm, value: 34.3, source: cogact_simpler}
+  - {entry: cogact, bench: simpler_google_vm, value: 74.8, source: cogact_simpler}
+  - {entry: rt-x, bench: simpler_widowx_vm, value: 1.1, source: cogact_simpler, setting: "RT-1-X"}
+  - {entry: octo, bench: simpler_widowx_vm, value: 17.5, source: cogact_simpler, setting: "Octo-Base (Octo-Small: 26.7)"}
+  - {entry: openvla, bench: simpler_widowx_vm, value: 4.2, source: cogact_simpler}
+  - {entry: cogact, bench: simpler_widowx_vm, value: 51.3, source: cogact_simpler}
+  # Meta-World (MT50, 4 difficulty levels averaged)
+  - {entry: diffusion-policy, bench: metaworld_mt50, value: 10.5, source: smolvla_t2}
+  - {entry: tinyvla, bench: metaworld_mt50, value: 31.6, source: smolvla_t2}
+  - {entry: pi0, bench: metaworld_mt50, value: 47.9, source: smolvla_t2, setting: "3.5B with robot pretraining"}
+  - {entry: smolvla, bench: metaworld_mt50, value: 57.3, source: smolvla_t2, setting: "0.45B"}

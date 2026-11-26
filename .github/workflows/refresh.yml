@@ -1,0 +1,38 @@
+name: Weekly refresh
+on:
+  schedule: [{cron: "0 7 * * 1"}]   # Mondays 07:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+jobs:
+  stars:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install pyyaml
+      - run: python scripts/fetch_stars.py && python scripts/build_readme.py
+        env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bot/weekly-refresh
+          title: "chore: weekly stars & license refresh"
+          commit-message: "chore: weekly stars & license refresh"
+          body: "Automated refresh of `data/stars.json`, `README.md` and `data/atlas.csv`."
+  releases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install pyyaml && python scripts/watch_releases.py > digest.md
+        env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+      - run: |
+          if ! grep -q "_No new releases._" digest.md; then
+            gh issue create --title "New releases to review ($(date -u +%F))" --body-file digest.md --label "release-watch" || \
+            gh issue create --title "New releases to review ($(date -u +%F))" --body-file digest.md
+          fi
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}

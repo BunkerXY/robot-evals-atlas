@@ -1,0 +1,60 @@
+# Disaster-Response Eval Gap Map
+# Real first-responder tasks (from DARPA DRC / SubT / Triage, MBZIRC and NIST test methods) mapped to the
+# closest modern robot-learning benchmarks. `coverage` is our editorial judgement of how well today's
+# learning benchmarks capture the task: none | partial | good. Corrections welcome via PR.
+tasks:
+  - task: Drive a utility vehicle, then egress
+    origin: darpa-drc
+    proxies: []
+    coverage: none
+    note: No learning benchmark covers vehicle driving + whole-body egress for a humanoid; DRC remains the reference.
+  - task: Open a door and pass through
+    origin: darpa-drc
+    proxies: [humanoidbench, maniskill3, behavior-1k, robocasa]
+    coverage: partial
+    note: Sim benchmarks include articulated doors/cabinets, but not heavy, spring-loaded or jammed full-size doors.
+  - task: Turn an industrial valve
+    origin: darpa-drc
+    proxies: [rlbench, nist-response-robots]
+    coverage: partial
+    note: RLBench has tap-turning; NIST has standardized dexterity test methods. Torque-heavy valves are untested in VLA benchmarks.
+  - task: Use a power tool (cut a hole in a wall)
+    origin: darpa-drc
+    proxies: [furniturebench]
+    coverage: none
+    note: Tool-use with reaction forces is essentially absent from current VLA evals.
+  - task: Cross rubble / uneven terrain
+    origin: darpa-drc
+    proxies: [legged-gym, humanoidbench, nist-response-robots, robocup-rescue]
+    coverage: partial
+    note: Terrain curricula exist in sim; NIST/RoboCup lanes are the physical standard.
+  - task: Climb stairs and ladders
+    origin: darpa-drc
+    proxies: [humanoidbench, legged-gym, nist-response-robots]
+    coverage: partial
+    note: Stairs are common in sim curricula; ladders are rarely benchmarked.
+  - task: Explore & map GPS/comms-denied structures, find victims and artifacts
+    origin: darpa-subt
+    proxies: [subt-virtual, habitat-challenge, vln-ce]
+    coverage: partial
+    note: SubT Virtual is the closest open eval; household ObjectNav lacks smoke, darkness and comms loss.
+  - task: Detect and prioritise casualties (triage)
+    origin: darpa-triage
+    proxies: []
+    coverage: none
+    note: Only the DARPA Triage Challenge measures this; no open robot-learning benchmark does.
+  - task: Locate and suppress a fire
+    origin: mbzirc
+    proxies: []
+    coverage: none
+    note: MBZIRC 2020 Challenge 3 is the main public reference; no open learning benchmark models fire, heat or smoke.
+  - task: Coordinate many responders (multi-agent)
+    origin: robocup-rescue-sim
+    proxies: [robocup-rescue-sim]
+    coverage: partial
+    note: Agent-level simulation only; no embodied multi-robot manipulation benchmark for disaster scenes.
+  - task: Perceive through smoke, dust and darkness
+    origin: nist-response-robots
+    proxies: [nist-response-robots]
+    coverage: partial
+    note: NIST sensor test methods exist; VLA/VLM benchmarks are almost entirely clean, well-lit scenes.

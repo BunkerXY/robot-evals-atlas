@@ -1,0 +1,4 @@
+- [ ] I edited `data/*.yaml` (not `README.md` directly)
+- [ ] `python scripts/validate.py` passes
+- [ ] `python scripts/build_readme.py` was run and its output committed
+- [ ] Every new link is a primary source, and every new score cites a specific table or leaderboard

@@ -1,0 +1,24 @@
+name: Suggest an entry
+description: Propose a model, agent, benchmark, simulator, dataset or tool
+labels: [new-entry]
+body:
+  - type: input
+    id: name
+    attributes: {label: Name}
+    validations: {required: true}
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options: [vla, policy, agent, humanoid, world_model, bench_manip, bench_embodied, bench_real, responder, simulator, dataset, tooling]
+    validations: {required: true}
+  - type: input
+    id: paper
+    attributes: {label: Paper URL (arXiv/DOI)}
+  - type: input
+    id: code
+    attributes: {label: Official code / weights URL}
+  - type: textarea
+    id: why
+    attributes: {label: Why it belongs (one or two factual sentences)}
+    validations: {required: true}

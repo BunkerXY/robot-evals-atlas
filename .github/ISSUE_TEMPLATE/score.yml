@@ -1,0 +1,20 @@
+name: Add or correct a score
+description: Every score must cite a specific table or leaderboard
+labels: [score]
+body:
+  - type: input
+    id: model
+    attributes: {label: Model / agent}
+    validations: {required: true}
+  - type: input
+    id: bench
+    attributes: {label: Benchmark and setting}
+    validations: {required: true}
+  - type: input
+    id: value
+    attributes: {label: Reported value}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes: {label: Source URL (paper table / README / leaderboard)}
+    validations: {required: true}
