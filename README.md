@@ -324,7 +324,7 @@ Robot learning is measured almost entirely in clean, well-lit kitchens and on ta
 | **MuJoCo Playground** | 2025 | Google DeepMind, UC Berkeley and others | GPU (MJX) environments for locomotion and manipulation with sim-to-real recipes. | [Paper](https://arxiv.org/abs/2502.08844) · [Code](https://github.com/google-deepmind/mujoco_playground) | 2.3k | Apache-2.0 |
 | **AI2-THOR / ProcTHOR** | 2017 | Allen Institute for AI | Interactive household simulator; ProcTHOR procedurally generates 10k+ houses. | [Paper](https://arxiv.org/abs/1712.05474) · [Site](https://ai2thor.allenai.org/) · [Code](https://github.com/allenai/ai2thor) | 1.8k | Apache-2.0 |
 | **Gazebo** | 2004 | Open Robotics | ROS-native robot simulator used by DARPA SubT virtual and many field robots. | [Site](https://gazebosim.org/) · [Code](https://github.com/gazebosim/gz-sim) | 1.6k | Apache-2.0 |
-| **SAPIEN** | 2020 | UC San Diego | Physics-rich simulator for articulated objects; backend of ManiSkill. | [Paper](https://arxiv.org/abs/2003.08515) · [Code](https://github.com/haosulab/SAPIEN) | 874 |  |
+| **SAPIEN** | 2020 | UC San Diego | Physics-rich simulator for articulated objects; backend of ManiSkill. | [Paper](https://arxiv.org/abs/2003.08515) · [Code](https://github.com/haosulab/SAPIEN) | 875 |  |
 | **CoppeliaSim** | 2010 | Coppelia Robotics | General-purpose robot simulator (formerly V-REP); backend of RLBench. | [Site](https://www.coppeliarobotics.com/) |  |  |
 
 <sub>[↑ back to top](#contents)</sub>
