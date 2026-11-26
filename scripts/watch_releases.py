@@ -6,7 +6,7 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DAYS = int(os.environ.get("DAYS", "7"))
 since = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=DAYS)
-H = {"Accept": "application/vnd.github+json", "User-Agent": "robot-agents-evals-atlas"}
+H = {"Accept": "application/vnd.github+json", "User-Agent": "robot-evals-atlas"}
 if os.environ.get("GITHUB_TOKEN"):
     H["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
 entries = yaml.safe_load((ROOT / "data/entries.yaml").read_text())

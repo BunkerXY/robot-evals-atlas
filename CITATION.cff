@@ -7,7 +7,7 @@ authors:
     website: "https://bunkerxy.com"
 type: dataset
 license: CC-BY-4.0
-repository-code: "https://github.com/BunkerXY/awesome-robot-agents-evals"
+repository-code: "https://github.com/BunkerXY/robot-evals-atlas"
 keywords: [robotics, embodied-ai, vision-language-action, benchmarks, evaluation, humanoid, disaster-response]
 date-released: "2026-11-26"
 version: "0.1.0"

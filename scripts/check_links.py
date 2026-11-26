@@ -8,7 +8,7 @@ import argparse, concurrent.futures as cf, json, re, sys, urllib.request, urllib
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-UA = "Mozilla/5.0 (robot-agents-evals-atlas link checker; +https://github.com/BunkerXY)"
+UA = "Mozilla/5.0 (robot-evals-atlas link checker; +https://github.com/BunkerXY)"
 URL_RE = re.compile(r"https?://[^\s)>\]\"'`|]+")
 # Sites that block bots but are known-good when opened in a browser get a soft pass on 403/429.
 SOFT = ("doi.org", "physicalintelligence.company", "onlinelibrary.wiley.com", "openai.com", "x.com", "twitter.com", "linkedin.com")
@@ -53,7 +53,7 @@ def main():
     urls = urls_from_yaml()
     for m in a.md:
         for u in URL_RE.findall(pathlib.Path(m).read_text()):
-            if "github.com/BunkerXY/awesome-robot-agents-evals" in u:
+            if "github.com/BunkerXY/robot-evals-atlas" in u:
                 continue  # our own badges only resolve after publishing
             urls.setdefault(u.rstrip(".,"), m)
     bad, soft, ok = [], [], 0

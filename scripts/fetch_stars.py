@@ -12,7 +12,7 @@ def repo_of(url):
     return f"{m.group(1)}/{m.group(2)}".removesuffix(".git") if m else None
 
 repos = sorted({r for e in entries for r in [repo_of(e.get("code"))] if r})
-headers = {"Accept": "application/vnd.github+json", "User-Agent": "robot-agents-evals-atlas"}
+headers = {"Accept": "application/vnd.github+json", "User-Agent": "robot-evals-atlas"}
 if os.environ.get("GITHUB_TOKEN"):
     headers["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
 

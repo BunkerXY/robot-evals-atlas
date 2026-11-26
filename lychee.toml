@@ -4,7 +4,7 @@ timeout = 30
 max_retries = 3
 accept = ["200..=299", "403", "429"]   # many publishers (Wiley, PI, DOI) block bots; data-layer checker is stricter
 exclude = [
-  "^https://github.com/BunkerXY/awesome-robot-agents-evals/actions",  # badges resolve only after publish
+  "^https://github.com/BunkerXY/robot-evals-atlas/actions",  # badges resolve only after publish
   "^https://img.shields.io",
 ]
 exclude_path = ["LICENSE"]

@@ -6,9 +6,8 @@
 **Every robot foundation model, agent and benchmark that matters — with links, live GitHub stars, and benchmark scores that each cite their source.**
 <br>Includes the **Disaster-Response Eval Gap Map**, a list of first-responder tasks that today's robot benchmarks don't measure yet.
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![Links](https://github.com/BunkerXY/awesome-robot-agents-evals/actions/workflows/links.yml/badge.svg)](https://github.com/BunkerXY/awesome-robot-agents-evals/actions/workflows/links.yml)
-[![Build](https://github.com/BunkerXY/awesome-robot-agents-evals/actions/workflows/build.yml/badge.svg)](https://github.com/BunkerXY/awesome-robot-agents-evals/actions/workflows/build.yml)
+[![Links](https://github.com/BunkerXY/robot-evals-atlas/actions/workflows/links.yml/badge.svg)](https://github.com/BunkerXY/robot-evals-atlas/actions/workflows/links.yml)
+[![Build](https://github.com/BunkerXY/robot-evals-atlas/actions/workflows/build.yml/badge.svg)](https://github.com/BunkerXY/robot-evals-atlas/actions/workflows/build.yml)
 [![Entries](https://img.shields.io/badge/entries-{{TOTAL}}-blue)](data/atlas.csv)
 [![License: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-green.svg)](LICENSE-CODE)
